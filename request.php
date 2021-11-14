@@ -95,6 +95,7 @@ class MyRedis
         try {
             $redisObj = self::openRedisConnection();
             $redisObj->setex($key, $ttl, $value);
+            $redisObj->close();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
